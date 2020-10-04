@@ -1,0 +1,19 @@
+.main-container {
+  height: 100%;
+}
+
+mat-drawer {
+  width: 25%;
+  max-width: 250px;
+  min-width: 100px;
+}
+
+mat-drawer-container, mat-drawer-content {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+mat-drawer {
+  background-color: #2B2D30;
+}

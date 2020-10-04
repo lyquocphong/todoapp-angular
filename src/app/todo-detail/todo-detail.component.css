@@ -1,0 +1,23 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.todoDetail--item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 15px;
+}
+
+.todoDetail--itemRow {
+  margin-bottom: 15px;
+}
+
+.todoDetail--itemRow button {
+  margin-right: 10px;
+}
+
+.todoDetail--itemRow span.mat-title {
+  margin-right: 5px;
+}

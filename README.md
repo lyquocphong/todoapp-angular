@@ -1,6 +1,7 @@
 # TodoApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+This project also using Angular Material for the UI
 
 ## Development server
 

@@ -1,0 +1,12 @@
+<mat-nav-list>
+  <a mat-list-item [ngClass]="{'todolist--todoitem--done': todo.completed === true}" routerLinkActive="active-link"  [routerLink]="['/todo', todo.id]" *ngFor="let todo of todos"> {{ todo.title }} </a>
+</mat-nav-list>
+
+<section class="statisticsSection">
+  <span>Total: {{todos.length}}</span>
+  <span>Done: {{doneTodosCount}}</span>
+</section>
+
+<div class="todoList--buttonRow">
+  <button mat-raised-button color="primary" (click)="openDialog()">Add new</button>
+</div>

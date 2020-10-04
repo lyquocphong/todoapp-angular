@@ -1,0 +1,53 @@
+<div *ngIf="todo; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div class="todoDetail--item">
+      <h1>Todo Details (You can double click to edit value)</h1>
+      <div class="todoDetail--itemRow">
+        <span class="mat-title">Title:</span>
+        <div *ngIf="!todo.editing; then thenBlockTitle else elseBlockTitle"></div>
+        <ng-template #thenBlockTitle>
+          <span class="mat-headline" (dblclick)="editTodo(todo)">{{todo.title}}</span>
+        </ng-template>
+        <ng-template #elseBlockTitle>
+          <mat-form-field appearance="outline">
+            <input required matInput [(ngModel)]="editingTodo.title">
+          </mat-form-field>
+        </ng-template>
+      </div>
+      <div class="todoDetail--itemRow">
+        <span class="mat-title">Status:</span>
+        <div *ngIf="!todo.editing; then thenBlockStatus else elseBlockStatus"></div>
+        <ng-template #thenBlockStatus>
+          <span class="mat-headline" (dblclick)="editTodo(todo)">{{todo.completed ? 'Done' : 'Undone'}}</span>
+        </ng-template>
+        <ng-template #elseBlockStatus>
+          <mat-checkbox class="example-margin" [(ngModel)]="editingTodo.completed">Done?</mat-checkbox>
+        </ng-template>
+      </div>
+      <div class="todoDetail--itemRow">
+        <p class="mat-title">Content:</p>
+        <div *ngIf="!todo.editing; then thenBlockContent else elseBlockContent"></div>
+        <ng-template #thenBlockContent>
+          <span class="mat-headline" (dblclick)="editTodo()">{{todo.content}}</span>
+        </ng-template>
+        <ng-template #elseBlockContent>
+          <mat-form-field appearance="outline">
+            <textarea required matInput [matTextareaAutosize] [(ngModel)]="editingTodo.content" matAutosizeMinRows=1 matAutosizeMaxRows=5></textarea>
+          </mat-form-field>
+        </ng-template>
+      </div>
+      <div class="todoDetail--itemRow">
+        <div *ngIf="!todo.editing; then thenBlockActionButton else elseBlockActionButton"></div>
+        <ng-template #thenBlockActionButton>
+          <button mat-raised-button (click)="deleteTodo(todo.id)" color="warn">Delete</button>
+        </ng-template>
+        <ng-template #elseBlockActionButton>
+          <button mat-raised-button (click)="cancelEditing()">Cancel</button>
+          <button mat-raised-button (click)="saveTodo(todo)" color="primary">Save</button>
+        </ng-template>
+      </div>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <h1 class="mat-display-1">Item not found. Please select another item from the list on the left</h1>
+</ng-template>
